@@ -18,7 +18,7 @@ func New(inputPath string, outPutPath string) FileManager {
 	}
 }
 
-func (fm *FileManager) ReadLines() ([]string, error) {
+func (fm FileManager) ReadLines() ([]string, error) {
 	file, error := os.Open(fm.InputFilePath)
 
 	if error != nil {
@@ -44,7 +44,7 @@ func (fm *FileManager) ReadLines() ([]string, error) {
 	return lines, nil
 }
 
-func (fm *FileManager) WriteResult(data interface{}) error {
+func (fm FileManager) WriteResult(data interface{}) error {
 	file, err := os.Create(fm.OutputFilePath)
 
 	if err != nil {
